@@ -1,5 +1,1 @@
-import {search} from './scraping'
-
-export {
-    search,
-}
+export *  from './scraping'

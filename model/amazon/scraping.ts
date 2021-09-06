@@ -13,7 +13,10 @@ async function search(){
     
     await page.waitForSelector('#twotabsearchtextbox')
     await page.click('#twotabsearchtextbox')
-    
+
+
+    // await navigationPromise
+
     await browser.close()
 }
 
