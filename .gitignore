@@ -1,4 +1,10 @@
 node_modules
 yarn.lock
+
 out/*
 !out/.gitignore
+
+screenshot/*
+!screenshot/.gitignore
+
+.env
