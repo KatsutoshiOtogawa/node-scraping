@@ -1,0 +1,16 @@
+{
+  "name": "aaa",
+  "version": "1.0.0",
+  "main": "./out/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./out/index.js"
+  },
+  "dependencies": {
+    "@types/node": "^16.7.10",
+    "@types/puppeteer": "^5.4.4",
+    "puppeteer": "^10.2.0",
+    "typescript": "^4.4.2"
+  }
+}
