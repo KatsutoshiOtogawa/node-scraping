@@ -10,10 +10,12 @@
     "start": "node ./out/index.js"
   },
   "dependencies": {
+    "@google-cloud/logging-winston": "^4.1.0",
     "commander": "^8.1.0",
     "pg": "^8.7.1",
     "puppeteer": "^10.2.0",
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.2",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@types/node": "^16.7.10",
