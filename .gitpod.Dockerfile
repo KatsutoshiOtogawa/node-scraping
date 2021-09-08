@@ -5,5 +5,4 @@ RUN bash -c ". .nvm/nvm.sh     && nvm install 16     && nvm use 16     && nvm al
 RUN echo "nvm use default &>/dev/null" >> ~/.bashrc.d/51-nvm-fix
 
 RUN npm install -g \
-    yarn \
-    eslint
+    yarn 
