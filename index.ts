@@ -1,21 +1,21 @@
-import {aaa} from './model'
-import { Command } from 'commander';
-import {db} from './lib/db'
+import { aaa } from './model'
+import { Command } from 'commander'
+import { db } from './lib/db'
 
-const program = new Command();
+const program = new Command()
 
 program
   .option('-d, --debug', 'output extra debugging')
   .option('-s, --small', 'small pizza size')
-  .option('-p, --pizza-type <type>', 'flavour of pizza');
+  .option('-p, --pizza-type <type>', 'flavour of pizza')
 
-program.parse(process.argv);
+program.parse(process.argv)
 
-const options = program.opts();
-if (options.debug) console.log(options);
-console.log('pizza details:');
-if (options.small) console.log('- small pizza size');
-if (options.pizzaType) console.log(`- ${options.pizzaType}`);
+const options = program.opts()
+if (options.debug) console.log(options)
+console.log('pizza details:')
+if (options.small) console.log('- small pizza size')
+if (options.pizzaType) console.log(`- ${options.pizzaType}`)
 
 db.pool.connect((err, client, release) => {
   if (err) {

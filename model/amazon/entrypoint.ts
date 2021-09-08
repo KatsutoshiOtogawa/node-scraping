@@ -1,9 +1,9 @@
-import {search} from './'
+import { search } from './'
 
-export {
-    invoke,
+function invoke () {
+  search()
 }
 
-function invoke(){
-
+export {
+  invoke
 }

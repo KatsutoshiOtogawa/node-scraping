@@ -1,5 +1,5 @@
-import {aaa} from './hello'
+import { aaa } from './hello'
 
 export {
-    aaa
+  aaa
 }
