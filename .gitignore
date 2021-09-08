@@ -1,8 +1,12 @@
 node_modules
 yarn.lock
+.vagrant 
 
 out/*
 !out/.gitignore
+
+dump/*
+!dump/.gitignore
 
 screenshot/*
 !screenshot/.gitignore
