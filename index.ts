@@ -1,6 +1,7 @@
 import { aaa } from './model'
 import { Command } from 'commander'
 import { db } from './lib/db'
+import { logger } from './lib/log'
 
 const program = new Command()
 
@@ -19,14 +20,20 @@ if (options.pizzaType) console.log(`- ${options.pizzaType}`)
 
 db.pool.connect((err, client, release) => {
   if (err) {
-    return console.error('Error acquiring client', err.stack)
+    // return console.error('Error acquiring client', err.stack)
+    logger.error('Error acquiring client')
+    logger.error(err.stack)
+    return
   }
   client.query('SELECT NOW()', (err, result) => {
     release()
     if (err) {
-      return console.error('Error executing query', err.stack)
+      logger.error('Error executing query')
+      logger.error(err.stack)
+      return
     }
-    console.log(result.rows)
+    // console.log(result.rows)
+    logger.info(result.rows)
   })
 })
 
