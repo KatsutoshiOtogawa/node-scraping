@@ -6,7 +6,7 @@ const storage = new Storage()
 const bucketName = process.env.GCLOUD_STORAGE_BUCKET ?? ''
 
 // fileNameはパス含む
-async function uploadGcs (fileName: string, logger: winston.Logger) {
+async function upload (fileName: string, logger: winston.Logger) {
   await storage.bucket(bucketName).upload(fileName, {
     destination: path.basename(fileName)
   })
@@ -14,7 +14,10 @@ async function uploadGcs (fileName: string, logger: winston.Logger) {
   logger.info(`${fileName} uploaded to ${bucketName}`)
 }
 
+const Gcp = {
+  storage: storage,
+  upload: upload
+}
 export {
-  storage,
-  uploadGcs
+  Gcp
 }
