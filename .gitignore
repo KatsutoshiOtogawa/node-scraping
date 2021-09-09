@@ -10,5 +10,3 @@ dump/*
 
 screenshot/*
 !screenshot/.gitignore
-
-.env

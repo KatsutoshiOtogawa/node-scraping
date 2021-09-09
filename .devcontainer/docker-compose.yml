@@ -33,12 +33,7 @@ services:
       LANG: ja_JP.UTF-8
       LANGUAGE: ja_JP.UTF-8
       LC_ALL: ja_JP.UTF-8
-      # pgをpostgresのライブラリとして使うので環境変数だけ書くと良い。
-      PGUSER: postgres
-      PGHOST: localhost
-      PGPASSWORD: postgres
-      PGDATABASE: postgres
-      PGPORT: 5432
+      LOCAL_STORAGE: /home/vscode/data
 
     # Uncomment the next line to use a non-root user for all processes.
     user: vscode
