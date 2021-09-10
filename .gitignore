@@ -1,6 +1,7 @@
 node_modules
 yarn.lock
 .vagrant 
+.DS_Store
 
 out/*
 !out/.gitignore
