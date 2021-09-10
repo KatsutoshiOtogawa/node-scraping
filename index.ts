@@ -3,6 +3,10 @@ import { Command } from 'commander'
 import { db } from './lib/db'
 import { logger } from './lib/log'
 
+// err時のstack traceを表示させるために必要。
+import sourceMapSupport from 'source-map-support'
+sourceMapSupport.install()
+
 const program = new Command()
 
 program
@@ -20,17 +24,16 @@ if (options.pizzaType) console.log(`- ${options.pizzaType}`)
 
 db.pool.connect((err, client, release) => {
   if (err) {
-    // return console.error('Error acquiring client', err.stack)
-    logger.error('Error acquiring client')
+    logger.error(err.message)
     logger.error(err.stack)
-    return
+    throw err
   }
   client.query('SELECT NOW()', (err, result) => {
     release()
     if (err) {
-      logger.error('Error executing query')
+      logger.error(err.message)
       logger.error(err.stack)
-      return
+      throw err
     }
     // console.log(result.rows)
     logger.info(result.rows)

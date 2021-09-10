@@ -22,6 +22,7 @@ function sendMail (logger: winston.Logger) {
       logger.info(result.body)
     })
     .catch((err) => {
+      logger.info(err.stack)
       logger.info(err.statusCode)
     })
 }

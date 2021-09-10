@@ -10,15 +10,18 @@
     "build": "tsc",
     "eslint": "eslint",
     "lint": "eslint . --ext ts",
+    "doc": "typedoc --out ./docs lib model",
     "start": "node ./out/index.js"
   },
   "dependencies": {
     "@google-cloud/logging-winston": "^4.1.0",
     "@google-cloud/storage": "^5.14.1",
+    "@sendgrid/mail": "^7.4.6",
     "commander": "^8.1.0",
     "node-mailjet": "^3.3.4",
     "pg": "^8.7.1",
     "puppeteer": "^10.2.0",
+    "source-map-support": "^0.5.20",
     "typescript": "^4.4.2",
     "winston": "^3.3.3"
   },
@@ -27,12 +30,14 @@
     "@types/node-mailjet": "^3.3.7",
     "@types/pg": "^8.6.1",
     "@types/puppeteer": "^5.4.4",
+    "@types/source-map-support": "^0.5.4",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0"
+    "eslint-plugin-promise": "^5.1.0",
+    "typedoc": "^0.21.9"
   }
 }
