@@ -86,7 +86,7 @@
 					<div class="tsd-signature tsd-kind-icon">Gcp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>storage<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Storage</span><span class="tsd-signature-symbol">; </span>upload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>fileName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, logger<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">winston.Logger</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/KatsutoshiOtogawa/node-scraping/blob/800faed/lib/storage/gcp.ts#L17">lib/storage/gcp.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/KatsutoshiOtogawa/node-scraping/blob/da639bb/lib/storage/gcp.ts#L21">lib/storage/gcp.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -104,13 +104,24 @@
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>gcsへのファイルアップロードです。</p>
+													</div>
+												</div>
 												<h4 class="tsd-parameters-title">Parameters</h4>
 												<ul class="tsd-parameters">
 													<li>
 														<h5>fileName: <span class="tsd-signature-type">string</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<p>パスを含むファイル名です</p>
+														</div>
 													</li>
 													<li>
 														<h5>logger: <span class="tsd-signature-type">winston.Logger</span></h5>
+														<div class="tsd-comment tsd-typography">
+															<p>winstonのloggerを渡してください。これを使ってログを吐きます。</p>
+														</div>
 													</li>
 												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -129,6 +140,12 @@
 				<ul>
 					<li class=" ">
 						<a href="../modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="lib_config.html">lib/config</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="lib_config_argsForModel.html">lib/config/args<wbr>For<wbr>Model</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="lib_db.html">lib/db</a>
@@ -179,9 +196,6 @@
 						<a href="model_amazon.html">model/amazon</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="model_amazon_entrypoint.html">model/amazon/entrypoint</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="model_amazon_scraping.html">model/amazon/scraping</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -206,6 +220,9 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 			</ul>
 		</div>
 	</div>

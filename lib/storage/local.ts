@@ -4,7 +4,11 @@ import path from 'path'
 
 const localStorage = process.env.LOCAL_STORAGE ?? ''
 
-// fileNameはパス含む
+/**
+ * ローカルへのファイルアップロードです。
+ * @param fileName パスを含むファイル名です
+ * @param logger winstonのloggerを渡してください。これを使ってログを吐きます。
+ */
 function upload (fileName: string, logger: winston.Logger) {
   const src = fs.createReadStream(fileName)
   const dest = fs.createWriteStream(path.join(localStorage, path.basename(fileName)), 'utf8')

@@ -6,7 +6,12 @@ const sendgridApiKey = process.env.SENDGRID_API_KEY ?? ''
 sgMail.setApiKey(sendgridApiKey)
 
 /**
- * sendMail
+ * sendGridを使った、メール送信です。
+ * @param to メールの送信先です aaa@example.com.
+ * @param from メールの送信元です bbb@example.com.
+ * @param subject メールの件名です。
+ * @param message メールの本文です。
+ * @param logger winstonのloggerを渡してください。これを使ってログを吐きます。
  */
 async function sendMail (to:string, from: string, subject: string, message: string, logger: winston.Logger) {
   const msg = {
