@@ -6,8 +6,15 @@ import { ArgsForModel } from '../../lib/config'
  * @param argsForModel argsModel
  */
 function invoke (argsForModel: ArgsForModel) {
-  // search引数の実行がsearchだったら実行。
-  Scraping.search('abc', argsForModel.logger)
+  switch (argsForModel.funcName) {
+    case 'search':
+      Scraping.search('abc', argsForModel.logger)
+      break
+    default:
+      // const err = Error('Not such function exists')
+      argsForModel.logger.warn('Not such function exists')
+      break
+  }
 }
 
 const Amazon = {

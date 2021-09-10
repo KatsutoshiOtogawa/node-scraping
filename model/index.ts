@@ -8,9 +8,14 @@ import { ArgsForModel } from '../lib/config'
  * @param argsForModel configのargsModelです。
  */
 function invoke (argsForModel: ArgsForModel) {
-  // switchで角。
-  if (argsForModel.modelName === 'Amazon') {
-    Amazon.invoke(argsForModel)
+  switch (argsForModel.modelName) {
+    case 'Amazon':
+      Amazon.invoke(argsForModel)
+      break
+    default:
+      // const err = Error('Not such function exists')
+      argsForModel.logger.warn('Not such function exists')
+      break
   }
 }
 
