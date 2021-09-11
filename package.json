@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf ./out",
+    "clean": "rm -rf ./out && mkdir ./out && touch ./out/.gitignore",
     "eslint": "eslint",
     "lint": "eslint . --ext ts",
     "doc": "typedoc --out ./docs lib model",
