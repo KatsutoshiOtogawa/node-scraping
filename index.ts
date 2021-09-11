@@ -1,8 +1,10 @@
+import 'reflect-metadata'
 import { Model } from './model'
 import { Command } from 'commander'
 import { db } from './lib/db'
 import { logger } from './lib/log'
 import { ArgsForModel } from './lib/config'
+
 // err時のstack traceを表示させるために必要。
 import sourceMapSupport from 'source-map-support'
 sourceMapSupport.install()

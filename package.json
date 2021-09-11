@@ -8,9 +8,11 @@
   },
   "scripts": {
     "build": "tsc",
+    "clean": "rm -rf ./out",
     "eslint": "eslint",
     "lint": "eslint . --ext ts",
     "doc": "typedoc --out ./docs lib model",
+    "orm": "typeorm",
     "start": "node ./out/index.js"
   },
   "dependencies": {
