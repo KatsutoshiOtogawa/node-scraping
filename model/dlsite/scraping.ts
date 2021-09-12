@@ -2,9 +2,12 @@ import path from 'path'
 import puppeteer from 'puppeteer'
 import winston from 'winston'
 
-const topPage = 'https://www.amazon.co.jp/'
-const searchBox = '//*[@id="twotabsearchtextbox"]'
-const searchButton = '//*[@id="nav-search-submit-button"]'
+// /html/body/div[5]/div/ul/li[2]/a
+// https://www.dlsite.com/
+// const topPage = 'https://www.dlsite.com/maniax/'
+const topPage = 'https://www.dlsite.com/'
+// const searchBox = '//*[@id="twotabsearchtextbox"]'
+// const searchButton = '//*[@id="nav-search-submit-button"]'
 /**
  * 検索窓から指定の言葉を検索します。
  * @param searchWord 検索に使う文字列です。
@@ -22,13 +25,14 @@ async function search (searchWord: string, logger: winston.Logger) {
   await page.goto(topPage)
   await page.setViewport({ width: 1219, height: 757 })
 
-  await page.waitForXPath(searchBox)
-  await page.type(searchBox, searchWord)
-  await page.click(searchButton)
-  await page.waitForSelector('body')
+  // await page.waitForXPath(searchBox)
+  // await page.type(searchBox, searchWord)
+  // await page.click(searchButton)
+  // await page.waitForSelector('body')
   //  await page.waitForNavigation()
   const screenshotDir = process.env.SCREENSHOT_DIR ?? 'screenshot'
 
+  logger.info('dlsite scraping')
   await page.screenshot({ path: path.join(screenshotDir, 'example.png') })
   // await navigationPromise
 

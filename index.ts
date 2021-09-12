@@ -1,13 +1,13 @@
 import 'reflect-metadata'
 import { db } from './lib/db'
 import { logger } from './lib/log'
-import { Model } from './model'
+import { Cli } from './cli'
 
 // err時のstack traceを表示させるために必要。
 import sourceMapSupport from 'source-map-support'
 sourceMapSupport.install()
 
-Model.command()
+Cli.invoke()
 
 db.pool.connect((err, client, release) => {
   if (err) {
