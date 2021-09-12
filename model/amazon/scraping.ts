@@ -3,6 +3,9 @@ import puppeteer from 'puppeteer'
 import winston from 'winston'
 import { Scraper } from '../../lib/scraper'
 
+// #search > div.s-desktop-width-max.s-desktop-content.s-opposite-dir.sg-row > div.s-matching-dir.sg-col-16-of-20.sg-col.sg-col-8-of-12.sg-col-12-of-16 > div > span:nth-child(4) > div.s-main-slot.s-result-list.s-search-results.sg-row > div:nth-child(7)
+// #search > div.s-desktop-width-max.s-desktop-content.s-opposite-dir.sg-row > div.s-matching-dir.sg-col-16-of-20.sg-col.sg-col-8-of-12.sg-col-12-of-16 > div > span:nth-child(4) > div.s-main-slot.s-result-list.s-search-results.sg-row > div:nth-child(8)
+
 const scraper = new Scraper(
   'https://www.amazon.co.jp/',
   '#twotabsearchtextbox',
@@ -31,6 +34,13 @@ async function search (searchWord: string, logger: winston.Logger) {
   await page.waitForTimeout(5000)
 
   await page.screenshot({ path: path.join(scraper.screenshotDir, 'example.png'), fullPage: true })
+
+  const target = await page.$$('#search > div.s-desktop-width-max.s-desktop-content.s-opposite-dir.sg-row > div.s-matching-dir.sg-col-16-of-20.sg-col.sg-col-8-of-12.sg-col-12-of-16 > div > span:nth-child(4) > div.s-main-slot.s-result-list.s-search-results.sg-row')
+
+  await target.forEach(
+    (value: puppeteer.ElementHandle<Element>, index: number, array: puppeteer.ElementHandle<Element>[]) => {
+      logger.info(value)
+    })
 
   await browser.close()
 }

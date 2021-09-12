@@ -17,7 +17,11 @@ const logger = winston.createLogger({
     format.json()
   ),
   transports: [
-    new winston.transports.Console()
+    new winston.transports.Console(),
+    new winston.transports.File({
+      filename: 'application-%DATE%.log',
+      zippedArchive: true
+    })
   ]
 })
 

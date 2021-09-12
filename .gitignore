@@ -11,3 +11,6 @@ dump/*
 
 screenshot/*
 !screenshot/.gitignore
+
+log/*
+!log/.gitignore
