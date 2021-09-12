@@ -33,10 +33,15 @@ function invoke () {
 
   // modelName,funcNameがちゃんと渡されているなら処理を呼び出す。
   if (modelName && funcName) {
-    logger.info('モデル')
-    const argsForModel = new ArgsForModel(modelName, funcName, logger)
+    const argsForModel = new ArgsForModel(
+      modelName,
+      funcName,
+      logger
+    )
     // 処理呼び出し。
     Model.invoke(argsForModel)
+  } else {
+    logger.error('モデル名か関数名が選択されていません。')
   }
 }
 
