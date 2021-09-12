@@ -1,4 +1,4 @@
-import winston from 'winston'
+import winston, { format } from 'winston'
 // Imports the Google Cloud client library for Winston
 import { LoggingWinston } from '@google-cloud/logging-winston'
 
@@ -8,6 +8,12 @@ const loggingWinston = new LoggingWinston()
 // Logs will be written to: "projects/YOUR_PROJECT_ID/logs/winston_log"
 const logger = winston.createLogger({
   level: 'info',
+  format: format.combine(
+    format.timestamp({
+      format: 'YYYY-MM-DD HH:mm:ss'
+    }),
+    format.json()
+  ),
   transports: [
     new winston.transports.Console(),
     // Add Stackdriver Logging
