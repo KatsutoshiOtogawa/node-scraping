@@ -3,6 +3,10 @@ import puppeteer from 'puppeteer'
 import winston from 'winston'
 import { Scraper } from '../../lib/scraper'
 
+import 'reflect-metadata'
+import { Log } from '../../orm'
+import { createConnection } from 'typeorm'
+
 // #search > div.s-desktop-width-max.s-desktop-content.s-opposite-dir.sg-row > div.s-matching-dir.sg-col-16-of-20.sg-col.sg-col-8-of-12.sg-col-12-of-16 > div > span:nth-child(4) > div.s-main-slot.s-result-list.s-search-results.sg-row > div:nth-child(7)
 // #search > div.s-desktop-width-max.s-desktop-content.s-opposite-dir.sg-row > div.s-matching-dir.sg-col-16-of-20.sg-col.sg-col-8-of-12.sg-col-12-of-16 > div > span:nth-child(4) > div.s-main-slot.s-result-list.s-search-results.sg-row > div:nth-child(8)
 
@@ -43,6 +47,25 @@ async function search (searchWord: string, logger: winston.Logger) {
       // logger.info(value.getProperty('textContent'))
     })
 
+  createConnection().then(async connection => {
+    // console.log('Inserting a new user into the database...')
+    // const user = new User()
+    // user.firstName = 'Timber'
+    // user.lastName = 'Saw'
+    // user.age = 25
+
+    const log = new Log()
+    log.name = 'abc'
+    log.data = JSON.stringify({ aaa: '3421' })
+    await connection.manager.save(log)
+    // console.log('Saved a new user with id: ' + user.id)
+
+    // console.log('Loading users from the database...')
+    // const users = await connection.manager.find(User)
+    // console.log('Loaded users: ', users)
+
+    // console.log('Here you can setup and run express/koa/any other framework.')
+  }).catch(error => console.log(error))
   await browser.close()
 }
 

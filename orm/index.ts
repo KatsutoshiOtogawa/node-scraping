@@ -1,7 +1,7 @@
 import 'reflect-metadata'
-// export { Photo } from './entity/Photo'
 export { User } from './entity/User'
 export { Photo } from './entity/Photo'
+export { Log } from './entity/Log'
 
 // import { createConnection } from 'typeorm'
 // import { User } from './entity/User'
