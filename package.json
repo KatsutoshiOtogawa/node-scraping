@@ -20,6 +20,7 @@
     "@google-cloud/storage": "^5.14.1",
     "@sendgrid/mail": "^7.4.6",
     "commander": "^8.1.0",
+    "dmm.js": "^0.1.0",
     "node-mailjet": "^3.3.4",
     "pg": "^8.7.1",
     "puppeteer": "^10.2.0",
