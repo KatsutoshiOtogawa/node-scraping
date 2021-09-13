@@ -1,3 +1,4 @@
+import path from 'path/posix'
 import winston, { format } from 'winston'
 
 // function getLabel (callingModule: any): winston.Logform.Format {
@@ -7,6 +8,8 @@ import winston, { format } from 'winston'
 //     message: parts[parts.length - 2] + '/' + parts.pop()
 //   })
 // }
+
+const logDir = process.env.LOG_DIR ?? './log'
 
 const logger = winston.createLogger({
   level: 'info',
@@ -19,8 +22,7 @@ const logger = winston.createLogger({
   transports: [
     new winston.transports.Console(),
     new winston.transports.File({
-      filename: 'application-%DATE%.log',
-      zippedArchive: true
+      filename: path.join(logDir, 'application-.log')
     })
   ]
 })

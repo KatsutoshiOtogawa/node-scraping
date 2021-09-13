@@ -39,7 +39,8 @@ async function search (searchWord: string, logger: winston.Logger) {
 
   await target.forEach(
     (value: puppeteer.ElementHandle<Element>, index: number, array: puppeteer.ElementHandle<Element>[]) => {
-      logger.info(value)
+      // logger.info(value)
+      // logger.info(value.getProperty('textContent'))
     })
 
   await browser.close()
