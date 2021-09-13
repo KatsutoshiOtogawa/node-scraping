@@ -38,10 +38,11 @@
 		"ms-azuretools.vscode-docker",
 		"dbaeumer.vscode-eslint",
 		"ms-vscode.vscode-typescript-next",
+		"ms-ossdata.vscode-postgresql"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	"forwardPorts": [5432],
 
 	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
 	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],

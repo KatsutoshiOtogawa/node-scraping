@@ -1,24 +1,30 @@
-// import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 
-// @Entity()
-// export class Photo {
-  // @PrimaryGeneratedColumn()
-  // id: number
+@Entity()
+export class Photo {
+  @PrimaryGeneratedColumn()
+  id: number
 
-  // @Column({
-    // length: 100
-  // })
-  // name: string
+  @Column({
+    length: 100
+  })
+  name: string
 
-  // @Column('text')
-  // description: string
+  @Column('text')
+  description: string
 
-  // @Column()
-  // filename: string
+  @Column()
+  filename: string
 
-  // @Column('double')
-  // views: number
+  @Column('double precision')
+  views: number
 
-  // @Column()
-  // isPublished: boolean
-// }
+  @Column()
+  isPublished: boolean
+
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp', precision: 0 })
+  readonly createdAt: Date
+
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', precision: 0 })
+  readonly updatedAt: Date
+}

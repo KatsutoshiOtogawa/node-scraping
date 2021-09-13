@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 
 @Entity()
 export class User {
@@ -13,4 +13,10 @@ export class User {
 
   @Column()
   age: number
+
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp', precision: 0 })
+  readonly createdAt: Date
+
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', precision: 0 })
+  readonly updatedAt: Date
 }
