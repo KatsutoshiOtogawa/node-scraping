@@ -29,6 +29,26 @@ async function show (ctx: Koa.Context) {
   await ctx.render('show', { post: post })
 }
 
+async function getLogin (ctx: Koa.Context) {
+  await ctx.render('login', { post: posts })
+}
+
+async function postLogin (ctx: Koa.Context) {
+  const email = ctx.request.body?.email ?? ''
+  const password = ctx.request.body?.password ?? ''
+
+  console.log(email)
+  console.log(password)
+  // ここでログイン認証走る。
+  await ctx.render('login', { post: posts })
+}
+// app.get('/login', (req, res) => {
+//     const errorMessage = req.flash('error').join('<br>');
+//     res.render('login/form', {
+//       errorMessage: errorMessage
+//     });
+//   });
+
 /**
  * Create a post.
  */
@@ -45,7 +65,9 @@ const Handler = {
   list: list,
   add: add,
   show: show,
-  create: create
+  create: create,
+  getLogin: getLogin,
+  postLogin: postLogin
 }
 
 export {

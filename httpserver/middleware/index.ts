@@ -1,1 +1,0 @@
-export { applyMiddleware } from './middleware'
