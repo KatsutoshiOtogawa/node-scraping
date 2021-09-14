@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>model | aaa</title>
+	<title>httpserver/route | aaa</title>
 	<meta name="description" content="Documentation for aaa">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">aaa</a>
 				</li>
 				<li>
-					<a href="model.html">model</a>
+					<a href="httpserver_route.html">httpserver/route</a>
 				</li>
 			</ul>
-			<h1>Module model</h1>
+			<h1>Module httpserver/route</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="model.html#Model" class="tsd-kind-icon">Model</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="httpserver_route.html#Routes" class="tsd-kind-icon">Routes</a></li>
 							</ul>
 						</section>
 					</div>
@@ -81,45 +81,25 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="Model" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> Model</h3>
-					<div class="tsd-signature tsd-kind-icon">Model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>invoke<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>argsForModel<span class="tsd-signature-symbol">: </span><a href="../classes/lib_config_argsForModel.ArgsForModel.html" class="tsd-signature-type" data-tsd-kind="Class">ArgsForModel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<a name="Routes" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Routes</h3>
+					<div class="tsd-signature tsd-kind-icon">Routes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>admin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultContext</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">; </span>nologin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultContext</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">; </span>user<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultContext</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/KatsutoshiOtogawa/node-scraping/blob/eecf595/model/index.ts#L27">model/index.ts:27</a></li>
+							<li>Defined in httpserver/route/index.ts:5</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5>invoke<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>argsForModel<span class="tsd-signature-symbol">: </span><a href="../classes/lib_config_argsForModel.ArgsForModel.html" class="tsd-signature-type" data-tsd-kind="Class">ArgsForModel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
-								<ul class="tsd-parameters">
-									<li class="tsd-parameter-signature">
-										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>argsForModel<span class="tsd-signature-symbol">: </span><a href="../classes/lib_config_argsForModel.ArgsForModel.html" class="tsd-signature-type" data-tsd-kind="Class">ArgsForModel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-										</ul>
-										<ul class="tsd-descriptions">
-											<li class="tsd-description">
-												<div class="tsd-comment tsd-typography">
-													<div class="lead">
-														<p>各モデルへのエントリーポイントです。</p>
-													</div>
-												</div>
-												<h4 class="tsd-parameters-title">Parameters</h4>
-												<ul class="tsd-parameters">
-													<li>
-														<h5>argsForModel: <a href="../classes/lib_config_argsForModel.ArgsForModel.html" class="tsd-signature-type" data-tsd-kind="Class">ArgsForModel</a></h5>
-														<div class="tsd-comment tsd-typography">
-															<p>configのargsModelです。</p>
-														</div>
-													</li>
-												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-											</li>
-										</ul>
-									</li>
-								</ul>
+								<h5>admin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultContext</span><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>nologin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultContext</span><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>user<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultState</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultContext</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
 					</div>
@@ -133,14 +113,14 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="model.html">model</a>
+						<a href="httpserver_route.html">httpserver/route</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="model.html#Model" class="tsd-kind-icon">Model</a>
+						<a href="httpserver_route.html#Routes" class="tsd-kind-icon">Routes</a>
 					</li>
 				</ul>
 			</nav>
