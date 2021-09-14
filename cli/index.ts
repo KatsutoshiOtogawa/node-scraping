@@ -4,11 +4,12 @@ import { ArgsForModel } from '../lib/config'
 // import { Model } from './model'
 import { Command } from 'commander'
 import { logger } from '../lib/log'
+import { app } from '../httpserver'
 
 /**
  * 各処理を外部から呼び出すための処理です。
  */
-function invoke () {
+function invoke ():void {
   // ここから別の関数に分ける。
   const program = new Command()
 
@@ -18,6 +19,7 @@ function invoke () {
     .option('-p, --pizza-type <type>', 'flavour of pizza')
     .option('-m, --model-name <modelName>', '実行するモデル名です。')
     .option('-f, --func-name <funcName>', '実行する関数名です。')
+    .option('-r, --runhttp')
 
   program.parse(process.argv)
 
@@ -30,6 +32,12 @@ function invoke () {
 
   const modelName:string = options.modelName ?? ''
   const funcName:string = options.funcName ?? ''
+  const runhttp:boolean = options.runhttp ?? false
+
+  if (runhttp) {
+    app.listen(3000)
+    return
+  }
 
   // modelName,funcNameがちゃんと渡されているなら処理を呼び出す。
   if (modelName && funcName) {

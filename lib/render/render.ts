@@ -1,7 +1,10 @@
 import views from 'koa-views'
-import path from 'path'
+// import path from 'path'
 
-const render = views(path.join(__dirname, '/../../views'), {
+const viewsDir = process.env.VIEWS_DIR ?? ''
+
+// const render = views(path.join(__dirname, '/../../views'), {
+const render = views(viewsDir, {
   map: { html: 'swig' }
 })
 

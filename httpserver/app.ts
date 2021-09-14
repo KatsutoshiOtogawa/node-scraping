@@ -3,7 +3,9 @@ import logger from 'koa-logger'
 import koaBody from 'koa-body'
 import Koa from 'koa'
 const router = require('@koa/router')()
-const app = module.exports = new Koa()
+
+const app = new Koa()
+// const app = module.exports = new Koa()
 
 // "database"
 
@@ -67,4 +69,8 @@ async function create (ctx: Koa.Context) {
 
 // listen
 
-if (!module.parent) app.listen(3000)
+// if (!module.parent) app.listen(3000)
+
+export {
+  app
+}
