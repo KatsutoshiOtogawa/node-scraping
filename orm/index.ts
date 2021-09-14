@@ -2,6 +2,7 @@ import 'reflect-metadata'
 export { User } from './entity/User'
 export { Photo } from './entity/Photo'
 export { Log } from './entity/Log'
+export { seed } from './seed'
 
 // import { createConnection } from 'typeorm'
 // import { User } from './entity/User'

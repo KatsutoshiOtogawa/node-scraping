@@ -1,4 +1,5 @@
 import Koa from 'koa'
+import { passwordAuthentication } from '../middleware/auth'
 
 const posts:any[] = []
 
@@ -33,12 +34,25 @@ async function getLogin (ctx: Koa.Context) {
   await ctx.render('login', { post: posts })
 }
 
-async function postLogin (ctx: Koa.Context) {
+async function postLogin (ctx: Koa.Context, next: Koa.Next) {
   const email = ctx.request.body?.email ?? ''
   const password = ctx.request.body?.password ?? ''
 
   console.log(email)
   console.log(password)
+  const user = await passwordAuthentication(email, password)
+
+  console.log(user)
+  if (user) {
+    console.log('user get')
+    if (ctx.session) {
+      console.log('login session')
+      ctx.session.isAdmin = user
+      ctx.redirect('/admin/')
+    }
+  }
+  // メールアドレスかパスワードが間違っています。
+  // next()
   // ここでログイン認証走る。
   await ctx.render('login', { post: posts })
 }

@@ -5,6 +5,7 @@ import { ArgsForModel } from '../lib/config'
 import { Command } from 'commander'
 import { logger } from '../lib/log'
 import { app } from '../httpserver'
+import { seed } from '../orm'
 
 /**
  * 各処理を外部から呼び出すための処理です。
@@ -15,10 +16,10 @@ function invoke ():void {
 
   program
     .option('-d, --debug', 'output extra debugging')
-    .option('-s, --small', 'small pizza size')
     .option('-p, --pizza-type <type>', 'flavour of pizza')
     .option('-m, --model-name <modelName>', '実行するモデル名です。')
     .option('-f, --func-name <funcName>', '実行する関数名です。')
+    .option('-s, --seed')
     .option('-r, --runhttp')
 
   program.parse(process.argv)
@@ -33,6 +34,12 @@ function invoke ():void {
   const modelName:string = options.modelName ?? ''
   const funcName:string = options.funcName ?? ''
   const runhttp:boolean = options.runhttp ?? false
+  const runseed:boolean = options.seed ?? false
+
+  if (runseed) {
+    seed()
+    return
+  }
 
   if (runhttp) {
     app.listen(3000)

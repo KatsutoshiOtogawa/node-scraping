@@ -3,6 +3,7 @@ import logger from 'koa-logger'
 import koaBody from 'koa-body'
 import Koa from 'koa'
 import { Routes } from './route'
+import { applySessionSetting } from './middleware'
 
 const app = new Koa()
 
@@ -16,7 +17,7 @@ app.use(render)
 app.use(koaBody())
 
 // sessionの設定読み込み
-// applySessionSetting(app)
+applySessionSetting(app)
 
 app.use(Routes.user.routes())
 app.use(Routes.admin.routes())

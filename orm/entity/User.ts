@@ -14,6 +14,12 @@ export class User {
   @Column()
   age: number
 
+  @Column()
+  email: string
+
+  @Column()
+  password: string
+
   @CreateDateColumn({ name: 'created_at', type: 'timestamp', precision: 0 })
   readonly createdAt: Date
 
