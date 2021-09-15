@@ -1,4 +1,5 @@
 import { Handler } from '../handler'
+import { AdminHandler } from '../handler/admin'
 import Router from '@koa/router'
 import { sessionCheckMiddlewareForAdmin } from '../middleware/session'
 
@@ -16,7 +17,7 @@ admin.get('/', sessionCheckMiddlewareForAdmin, Handler.list)
   .get('/post/new', sessionCheckMiddlewareForAdmin, Handler.add)
   .get('/post/:id', sessionCheckMiddlewareForAdmin, Handler.show)
   .post('/post', sessionCheckMiddlewareForAdmin, Handler.create)
-  .get('/logout', Handler.getLogout)
+  .get('/logout', AdminHandler.Login.getLogout)
 
 if (process.env.NODE_ENV !== 'production') {
   console.log(admin.stack.map(i => i.path))

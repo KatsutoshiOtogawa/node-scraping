@@ -82,7 +82,7 @@ async function sessionCheckMiddlewareForAdmin (ctx: Koa.Context, next: Koa.Next)
     // next()
   } else {
     // ログインしてなかったら
-    ctx.redirect('/login')
+    ctx.redirect('/login/admin')
   }
   await next()
 }
@@ -97,7 +97,7 @@ async function sessionCheckMiddlewareForUser (ctx: Koa.Context, next: Koa.Next) 
     // next()
   } else {
     // ログインしてなかったら
-    ctx.redirect('/login')
+    ctx.redirect('/login/user')
   }
   await next()
 }
