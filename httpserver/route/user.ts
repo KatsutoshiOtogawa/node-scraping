@@ -10,6 +10,10 @@ user.get('/', Handler.list)
   .get('/post/:id', Handler.show)
   .post('/post', Handler.create)
 
+if (process.env.NODE_ENV !== 'production') {
+  console.log(user.stack.map(i => i.path))
+}
+
 export {
   user
 }

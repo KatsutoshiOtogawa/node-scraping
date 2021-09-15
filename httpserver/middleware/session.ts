@@ -1,6 +1,5 @@
 import Koa from 'koa'
 import session from 'koa-session'
-import { User } from '../../orm'
 
 /**
  * Sessionの設定を行う
@@ -9,13 +8,12 @@ import { User } from '../../orm'
 function applySessionSetting (app: Koa<Koa.DefaultState, Koa.DefaultContext>) {
   app.keys = [process.env.SESSION_KEY ?? 'some secret hurr']
 
-  // const localEnv = process.env.LOCAL_ENV ?? ''
-
-  // const isHttpOnly = localEnv === 'local' ? false : true
-  let isHttpOnly = true
-  // ローカル環境だったら、
-  if (process.env.LOCAL_ENV) {
-    isHttpOnly = false
+  let isHttpOnly = false
+  let isSecure = false
+  // 本番環境だったら
+  if (process.env.NODE_ENV === 'production') {
+    isHttpOnly = true
+    isSecure = true
   }
   const CONFIG = {
     key: 'koa.sess', /** (string) cookie key (default is koa.sess) */
@@ -29,7 +27,7 @@ function applySessionSetting (app: Koa<Koa.DefaultState, Koa.DefaultContext>) {
     signed: true, /** (boolean) signed or not (default true) */
     rolling: false, /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */
     renew: false, /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false) */
-    secure: true /** (boolean) secure cookie */
+    secure: isSecure /** (boolean) secure cookie */
     // sameSite: null /** (string) session cookie sameSite options (default null, don't set it) */
   }
 
@@ -74,25 +72,38 @@ function applySessionSetting (app: Koa<Koa.DefaultState, Koa.DefaultContext>) {
 //   })
 // }
 
-async function sessionCheckMiddleware (ctx: Koa.Context, next: Koa.Next) {
+async function sessionCheckMiddlewareForAdmin (ctx: Koa.Context, next: Koa.Next) {
   // ignore favicon
   if (ctx.path === '/favicon.ico') return
 
   // adminでログインしていたらここに入る。
-  if (ctx.session?.isAdmin) {
+  if (ctx.session?.admin) {
     console.log('admin')
-    next()
+    // next()
   } else {
     // ログインしてなかったら
     ctx.redirect('/login')
   }
+  await next()
 }
 
-// function sessionSet (user: User) {
-//   this.session.
-// }
+async function sessionCheckMiddlewareForUser (ctx: Koa.Context, next: Koa.Next) {
+  // ignore favicon
+  if (ctx.path === '/favicon.ico') return
+
+  // adminでログインしていたらここに入る。
+  if (ctx.session?.user) {
+    console.log('user')
+    // next()
+  } else {
+    // ログインしてなかったら
+    ctx.redirect('/login')
+  }
+  await next()
+}
 
 export {
   applySessionSetting,
-  sessionCheckMiddleware
+  sessionCheckMiddlewareForAdmin,
+  sessionCheckMiddlewareForUser
 }

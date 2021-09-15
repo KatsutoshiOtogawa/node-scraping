@@ -18,7 +18,10 @@ async function passwordAuthentication (email: string, password: string): Promise
     console.log(user)
 
     return user
-  }).catch(error => console.log(error))
+  }).catch(error => {
+    console.log(error)
+    throw error
+  })
 
   return user
 }

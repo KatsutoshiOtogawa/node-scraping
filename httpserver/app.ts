@@ -4,7 +4,6 @@ import koaBody from 'koa-body'
 import Koa from 'koa'
 import { Routes } from './route'
 import { applySessionSetting } from './middleware'
-
 const app = new Koa()
 
 // "database"

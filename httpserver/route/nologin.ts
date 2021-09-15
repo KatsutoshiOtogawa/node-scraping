@@ -11,6 +11,10 @@ nologin.get('/', Handler.list)
 nologin.get('/login', Handler.getLogin)
   .post('/login', Handler.postLogin)
 
+if (process.env.NODE_ENV !== 'production') {
+  console.log(nologin.stack.map(i => i.path))
+}
+
 export {
   nologin
 }

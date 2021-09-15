@@ -34,6 +34,12 @@ async function getLogin (ctx: Koa.Context) {
   await ctx.render('login', { post: posts })
 }
 
+async function getLogout (ctx: Koa.Context) {
+  ctx.session = null
+  await ctx.render('logout', { post: posts })
+}
+// AlreadyHasActiveConnectionError: Cannot create a new connection named "default", because connection with such name already exist and it now has an active connection session.
+
 async function postLogin (ctx: Koa.Context, next: Koa.Next) {
   const email = ctx.request.body?.email ?? ''
   const password = ctx.request.body?.password ?? ''
@@ -41,13 +47,18 @@ async function postLogin (ctx: Koa.Context, next: Koa.Next) {
   console.log(email)
   console.log(password)
   const user = await passwordAuthentication(email, password)
+    .catch(error => {
+      // insernalserver error
+      console.log(error)
+      ctx.status = 500
+    })
 
   console.log(user)
   if (user) {
     console.log('user get')
     if (ctx.session) {
       console.log('login session')
-      ctx.session.isAdmin = user
+      ctx.session.admin = user
       ctx.redirect('/admin/')
     }
   }
@@ -81,7 +92,8 @@ const Handler = {
   show: show,
   create: create,
   getLogin: getLogin,
-  postLogin: postLogin
+  postLogin: postLogin,
+  getLogout: getLogout
 }
 
 export {

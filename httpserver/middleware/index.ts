@@ -1,2 +1,2 @@
 export { passwordAuthentication } from './auth'
-export { applySessionSetting, sessionCheckMiddleware } from './session'
+export { applySessionSetting, sessionCheckMiddlewareForAdmin, sessionCheckMiddlewareForUser } from './session'
